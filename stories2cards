@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+require File.dirname(__FILE__) + '/config/environment'
+
+CONFIG = YAML::load(File.read('./config/config.yml'))
+
+endpoint = CONFIG['xplanner']['endpoint']
+username = CONFIG['xplanner']['username']
+password = CONFIG['xplanner']['password']
+
+driver = XPlanner.new
+driver.options["protocol.http.basic_auth"] << [endpoint, username, password]
+
+current_iteration = driver.getCurrentIteration(CONFIG['xplanner']['project_id'])
+stories = driver.getUserStories(current_iteration.id)
+
+Prawn::Document.generate_cards("cards.pdf", stories)
+
+
+

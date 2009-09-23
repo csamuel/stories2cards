@@ -1,0 +1,6 @@
+---
+xplanner:
+    project_id: 438
+    endpoint:   http://pacdcdtadeva02:7070/soap/XPlanner?wsdl
+    username:   csamue4916c
+    password:   Dtaivr2011
