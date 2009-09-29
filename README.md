@@ -12,4 +12,4 @@ Gets all current iteration stories and creates 3x5 cards suitable for printing.
 	./stories2cards
 </code>
 
-The cards will be in a file called <code>cards.pdf</code>
+The cards will be in <code>cards.pdf</code>
