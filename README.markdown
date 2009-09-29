@@ -1,5 +1,7 @@
 #stories2cards
 
+Based on [http://github.com/brynary/features2cards](http://github.com/brynary/features2cards example)
+
 Gets all current iteration stories and creates 3x5 cards suitable for printing.
 
 ##Prerequisites
