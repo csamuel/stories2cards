@@ -2,16 +2,16 @@
 
 require File.dirname(__FILE__) + '/config/environment'
 
-CONFIG = YAML::load(File.read('./config/config.yml'))
+CONFIG = YAML::load(File.read('./config/config.yml'))['xplanner']
 
-endpoint = CONFIG['xplanner']['endpoint']
-username = CONFIG['xplanner']['username']
-password = CONFIG['xplanner']['password']
+endpoint = CONFIG['endpoint']
+username = CONFIG['username']
+password = CONFIG['password']
 
 driver = XPlanner.new
 driver.options["protocol.http.basic_auth"] << [endpoint, username, password]
 
-iteration = driver.getCurrentIteration(CONFIG['xplanner']['project_id'])
+iteration = driver.getCurrentIteration(CONFIG['project_id'])
 stories = driver.getUserStories(iteration.id)
 
 Prawn::Document.generate_cards("cards.pdf", stories)
