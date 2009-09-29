@@ -11,8 +11,8 @@ password = CONFIG['xplanner']['password']
 driver = XPlanner.new
 driver.options["protocol.http.basic_auth"] << [endpoint, username, password]
 
-current_iteration = driver.getCurrentIteration(CONFIG['xplanner']['project_id'])
-stories = driver.getUserStories(current_iteration.id)
+iteration = driver.getCurrentIteration(CONFIG['xplanner']['project_id'])
+stories = driver.getUserStories(iteration.id)
 
 Prawn::Document.generate_cards("cards.pdf", stories)
 
